@@ -2,8 +2,6 @@ package com.intexsoft;
 
 import com.intexsoft.io.IOConsole;
 
-import java.io.IOException;
-
 public class Main {
     public static void main(String[] args) {
         try {
