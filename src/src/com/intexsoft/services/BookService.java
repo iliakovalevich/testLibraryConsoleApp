@@ -5,7 +5,6 @@ import com.intexsoft.api.services.IBookService;
 import com.intexsoft.dao.BookDao;
 import com.intexsoft.entities.Book;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +14,7 @@ public class BookService implements IBookService {
 
     @Override
     public void create(Book entity) {
-        Integer id = readAll().size() + 3;
+        Integer id = readAll().size() + 1;
         String idBook = Integer.toString(id);
         Book book = new Book(idBook,entity.getTitle(),entity.getAuthor());
         bookDao.create(book);
@@ -52,6 +51,7 @@ public class BookService implements IBookService {
 
     @Override
     public Book getById(Integer id) {
-        return null;
+        Map<String,Book> stringBookMap = readAll();
+        return stringBookMap.get(id.toString());
     }
 }

@@ -4,7 +4,6 @@ import com.intexsoft.api.dao.IBookDao;
 import com.intexsoft.entities.Book;
 
 import java.io.*;
-import java.nio.file.Path;
 import java.util.*;
 
 public class BookDao implements IBookDao {
@@ -19,6 +18,8 @@ public class BookDao implements IBookDao {
             properties.put(entity.getId(), value);
             FileWriter output = new FileWriter(PATH_TO_FILE_WITH_BOOKS);
             properties.store(output, null);
+        } catch (FileNotFoundException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }

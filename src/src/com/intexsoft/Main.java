@@ -10,7 +10,7 @@ public class Main {
         try {
             startMethod();
         } catch (Exception exception) {
-            System.out.println(exception);
+            exception.printStackTrace();
         }
     }
 
@@ -23,8 +23,10 @@ public class Main {
                     ioConsole.printHashMapValues(bookService.readAll());
                     break;
                 case "2":
-                    System.out.println("2");
                     bookService.create(ioConsole.createNewBook());
+                    break;
+                case "3" :
+                    ioConsole.printString(bookService.getById(ioConsole.getBookId()).toString());
                     break;
                 case "0":
                     return;
