@@ -1,17 +1,8 @@
 package com.intexsoft;
 
 import com.intexsoft.api.services.IBookService;
-import com.intexsoft.entities.Book;
 import com.intexsoft.io.IOConsole;
-import com.intexsoft.io.IOFile;
 import com.intexsoft.services.BookService;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
 
 public class Main {
 
@@ -19,7 +10,7 @@ public class Main {
         try {
             startMethod();
         } catch (Exception exception) {
-
+            System.out.println(exception);
         }
     }
 
@@ -33,6 +24,7 @@ public class Main {
                     break;
                 case "2":
                     System.out.println("2");
+                    bookService.create(ioConsole.createNewBook());
                     break;
                 case "0":
                     return;

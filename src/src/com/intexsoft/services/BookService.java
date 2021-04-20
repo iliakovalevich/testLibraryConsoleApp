@@ -15,7 +15,10 @@ public class BookService implements IBookService {
 
     @Override
     public void create(Book entity) {
-
+        Integer id = readAll().size() + 3;
+        String idBook = Integer.toString(id);
+        Book book = new Book(idBook,entity.getTitle(),entity.getAuthor());
+        bookDao.create(book);
     }
 
     @Override
